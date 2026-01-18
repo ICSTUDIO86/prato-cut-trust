@@ -1,20 +1,21 @@
-const capabilities = [
-  { label: "Fabric Types", value: "Woven, Knit, Technical" },
-  { label: "Order Size", value: "50 – 10,000+ pieces" },
-  { label: "Turnaround", value: "Depends on order size" },
-  { label: "Equipment", value: "Industrial cutting machines" },
-  { label: "Location", value: "Prato, Tuscany" },
-  { label: "Years Active", value: "Since 2008" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Capabilities = () => {
+  const { t } = useLanguage();
+
+  const capabilities = [
+    { label: t('capabilities.fabrics'), value: t('capabilities.fabrics.desc') },
+    { label: t('capabilities.orders'), value: t('capabilities.orders.desc') },
+    { label: t('capabilities.turnaround'), value: t('capabilities.turnaround.desc') },
+    { label: t('capabilities.years'), value: t('capabilities.years.desc') },
+  ];
+
   return (
     <section className="section-padding bg-background">
       <div className="container-narrow">
-        <h2 className="heading-section mb-2">Capabilities</h2>
-        <p className="text-text-muted mb-10">Capacità</p>
+        <h2 className="heading-section mb-10">{t('capabilities.title')}</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {capabilities.map((item, index) => (
             <div key={index} className="space-y-1">
               <p className="text-xs uppercase tracking-wider text-text-muted">

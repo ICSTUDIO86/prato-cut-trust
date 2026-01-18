@@ -1,24 +1,27 @@
-const examples = [
-  { type: "Woven garment", note: "cutting reference" },
-  { type: "Knitwear", note: "bulk order cutting" },
-  { type: "Small batch", note: "cutting only" },
-  { type: "Technical fabric", note: "sample cutting" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProductionExamples = () => {
+  const { t } = useLanguage();
+
+  const examples = [
+    { type: t('examples.woven'), note: t('examples.woven.desc') },
+    { type: t('examples.knitwear'), note: t('examples.knitwear.desc') },
+    { type: t('examples.smallbatch'), note: t('examples.smallbatch.desc') },
+  ];
+
   return (
     <section className="section-padding bg-background">
       <div className="container-narrow">
-        <h2 className="heading-section mb-2">Production Examples</h2>
-        <p className="text-text-muted mb-10">Esempi di produzione</p>
+        <h2 className="heading-section mb-2">{t('examples.title')}</h2>
+        <p className="text-text-muted mb-10">{t('examples.subtitle')}</p>
 
         {/* Grid of examples */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-3 gap-4 mb-8">
           {examples.map((item, index) => (
             <div key={index} className="space-y-2">
               <div className="aspect-square bg-muted rounded-sm flex items-center justify-center border border-border">
                 <p className="text-xs text-text-muted text-center px-2">
-                  Reference photo
+                  Photo
                 </p>
               </div>
               <div>
@@ -32,14 +35,7 @@ const ProductionExamples = () => {
         {/* Disclaimer */}
         <div className="border-t border-border pt-6">
           <p className="text-xs text-text-muted leading-relaxed">
-            The following examples are shown for cutting reference only. 
-            Design, branding and sales belong to the respective clients. 
-            5 STAR does not sell or design garments.
-          </p>
-          <p className="text-xs text-text-muted leading-relaxed mt-2 italic">
-            I seguenti esempi sono mostrati solo come riferimento di lavorazione. 
-            Design, marchi e vendita appartengono ai rispettivi clienti. 
-            5 STAR non vende né progetta capi.
+            {t('examples.disclaimer')}
           </p>
         </div>
       </div>
