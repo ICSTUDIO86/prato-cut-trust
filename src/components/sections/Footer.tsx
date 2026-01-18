@@ -1,4 +1,7 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -6,10 +9,10 @@ const Footer = () => {
       <div className="container-narrow">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
           <p>
-            © {currentYear} 5 STAR — Prato, Italy
+            © {currentYear} 5 STAR — {t('footer.rights')}
           </p>
           <p>
-            Garment cutting service (Conto Terzi)
+            {t('footer.service')}
           </p>
         </div>
       </div>

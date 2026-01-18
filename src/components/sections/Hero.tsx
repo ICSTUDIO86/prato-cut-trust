@@ -1,7 +1,10 @@
 import { Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="section-padding bg-background">
       <div className="container-narrow">
@@ -16,14 +19,13 @@ const Hero = () => {
         {/* Core Message */}
         <div className="space-y-6 mb-12">
           <p className="heading-section text-foreground">
-            Garment Cutting Service
+            {t('hero.tagline')}
           </p>
           <p className="text-body text-text-secondary max-w-xl">
-            Taglio tessuti per conto terzi. <br />
-            Fabric cutting for third parties.
+            {t('hero.subtitle')}
           </p>
           <p className="text-sm text-text-muted">
-            Prato, Italy — Operating since 2008
+            {t('hero.location')}
           </p>
         </div>
 
